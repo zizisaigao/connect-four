@@ -82,12 +82,15 @@ pytest
 
 ## 策略调研
 
-详见 [docs/STRATEGY.md](docs/STRATEGY.md)，涵盖：
+- **[四子棋完整策略文档](docs/四子棋完整策略文档.md)** — 详细策略说明 + **代码实现状态标注**（推荐）
+- [STRATEGY.md](docs/STRATEGY.md) — 简明调研摘要
 
 - 四子棋被证明为**先手强解必胜**
 - 1988 年至今的求解历史
 - Bitboard、Negamax、Alpha-Beta、MTD(f) 算法说明
 - 与 RL / LLM / MCTS 的对比与学习路径
+
+完整版见 [四子棋完整策略文档](docs/四子棋完整策略文档.md)。
 
 ## 项目结构
 
