@@ -12,6 +12,52 @@
 
 ## 快速开始
 
+### macOS
+
+前置条件：已安装 [Homebrew](https://brew.sh/) 和 Python 3.10+。
+
+```bash
+# 1. 安装 Python（如尚未安装）
+brew install python
+
+# 2. 克隆仓库
+git clone https://github.com/zizisaigao/connect-four.git
+cd connect-four
+
+# 3. 创建并激活虚拟环境（推荐）
+python3 -m venv .venv
+source .venv/bin/activate
+
+# 4. 安装项目
+pip install -e ".[dev]"
+
+# 5. 若提示找不到 connect-four 命令，将用户脚本目录加入 PATH
+export PATH="$HOME/.local/bin:$PATH"
+# 或直接用模块方式调用：
+# python -m connect_four.cli analyze
+```
+
+常用命令：
+
+```bash
+# 分析空盘：最优首着为第 4 列
+connect-four analyze
+
+# 人机对战（终端输入列号 1-7）
+connect-four play --p1 human --p2 solver
+
+# 运行测试
+pytest
+```
+
+退出虚拟环境：
+
+```bash
+deactivate
+```
+
+### Linux / 通用
+
 ```bash
 pip install -e ".[dev]"
 
