@@ -12,6 +12,101 @@
 
 ## 快速开始
 
+### Windows
+
+前置条件：已安装 **Python 3.10+** 和 **Git**。
+
+#### 1. 安装 Python
+
+从 https://www.python.org/downloads/ 下载安装包，安装时勾选：
+
+- **Add python.exe to PATH**（重要）
+
+验证安装（打开 **PowerShell** 或 **命令提示符**）：
+
+```powershell
+python --version
+pip --version
+```
+
+#### 2. 下载项目
+
+```powershell
+git clone https://github.com/zizisaigao/connect-four.git
+cd connect-four
+```
+
+若 `main` 分支还没有代码，可切换到开发分支：
+
+```powershell
+git checkout cursor/connect-four-solver-6d87
+```
+
+没有 Git 时，可在 GitHub 页面点击 **Code → Download ZIP** 解压后进入文件夹。
+
+#### 3. 创建虚拟环境并安装
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -e ".[dev]"
+```
+
+若 PowerShell 提示无法运行脚本，先执行：
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+或使用 **命令提示符（cmd）** 激活环境：
+
+```cmd
+.\.venv\Scripts\activate.bat
+pip install -e ".[dev]"
+```
+
+#### 4. 开始下棋
+
+```powershell
+# 你（先手）vs AI（后手）
+connect-four play --p1 human --p2 solver
+
+# 你（后手）vs AI（先手）—— AI 更强，难度更高
+connect-four play --p1 solver --p2 human
+
+# 若提示找不到 connect-four，改用：
+python -m connect_four.cli play --p1 human --p2 solver
+```
+
+对局时在终端输入列号 **1～7**（从左到右），回车落子。
+
+```
+. . . . . . .
+. . . . . . .
+. . . . . . .
+. . . . . . .
+. . . . . . .
+. X . . . . .
+1 2 3 4 5 6 7
+
+Player 1, choose column [0, 1, 2, 3, 4, 5, 6]: 4    ← 输入 4 表示走第 4 列
+```
+
+#### 5. 其他常用命令
+
+```powershell
+# 分析局面
+connect-four analyze
+
+# 人机对战（玩家 vs 随机 AI，练手用）
+connect-four play --p1 human --p2 random
+
+# 退出虚拟环境
+deactivate
+```
+
+> **说明**：当前是**终端文字棋盘**，没有图形窗口。棋子用 `X` / `O` 显示，`.` 表示空位。
+
 ### macOS
 
 前置条件：已安装 [Homebrew](https://brew.sh/) 和 Python 3.10+。
